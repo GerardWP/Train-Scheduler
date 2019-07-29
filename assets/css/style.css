@@ -1,0 +1,142 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    font-family: 'Open Sans', sans-serif;
+    background: url(../images/bg-page.png) center right no-repeat #092744;
+    background-size: cover;
+}
+
+header {
+    background: #1f6ab6;
+    padding: 20px;
+}
+
+.header-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.header-content img {
+    max-width: 100px;
+}
+
+.header-content h1 {
+    margin: 0 0 4px;
+    font-size: 1.5em;
+    padding-top: 2px;
+}
+
+.header-content h5 {
+    margin: 0;
+    font-weight: 300;
+    font-size: .7em;
+}
+
+.main {
+    width: 95%;
+    max-width: 1200px;
+    margin: 35px auto;
+}
+
+h2 {
+    color: #fff;
+    background: url(../images/table-graphic.png) no-repeat center right #134980;
+    background-size: 100px;
+    margin: 0;
+    padding: 6px 10px 10px;
+    font-weight: 500;
+    font-size: 1.1em;
+}
+
+h2.top-r {
+    border-radius: 6px 6px 0 0;
+}
+
+.trains {
+    border-radius: 8px 8px 6px 6px;
+    /* border: 2px solid #1e6fc0; */
+    background: #f9f9f9;
+    margin-bottom: 10px;
+}
+
+table {
+    width: 100%;
+    border-spacing: 1px;
+}
+
+th {
+    padding: 8px;
+    color: #fff;
+    font-size: .8em;
+    font-weight: lighter;
+    background: #1e6fc0;
+    text-align: center;
+}
+
+td {
+    text-align: center;
+    font-weight: lighter;
+    font-size: .9em;
+    padding: 8px;
+    border-bottom: 1px solid rgb(245, 245, 245);
+    background: #fff;
+}
+
+.train-form {
+    padding: 0 10px 10px;
+    border-radius: 0 0 6px 6px;
+    background-size: cover;
+}
+
+input {
+    display: block;
+    margin: 0;
+    height: 35px;
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid rgb(189, 189, 189);
+    padding-left: 7px;
+}
+
+label {
+    margin: 0;
+    padding: 10px 0 3px;
+    font-weight: bold;
+    font-size: .85em;
+    color: rgb(82, 82, 82);
+}
+
+button {
+    margin-top: 10px;
+}
+
+footer {
+    margin-top: auto;
+    background: #1f6ab6;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+}
+
+footer h3 {
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: .8em;
+    margin: 0;
+    letter-spacing: .04em;
+}

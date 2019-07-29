@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/moment@2.24.0/moment.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-database.js"></script>
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <div class="header-content">
+            <img src="./assets/images/g-line.png" alt="Train Logo">
+            <h1>G/Line Railways</h1>
+            <h5>Arrive on time, everytime.</h5>
+        </div>
+    </header>
+
+    <section class="main">
+        <div class="trains">
+            <h2 class="top-r">Current Train Shedual</h2>
+            <div class="train-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th id="top-left">Train Name</th>
+                            <th>Destination</th>
+                            <th>Frequency (min)</th>
+                            <th>Next Arrival</th>
+                            <th>Minutes Away</th>
+                            <th id="top-right">Remove</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+
+        <div class="trains">
+            <h2>Add Train</h2>
+            <div class="train-form">
+                <form>
+                    <div>
+                        <label for="trainName">Train Name</label>
+                        <input type="name" id="trainName" placeholder="">
+                    </div>
+                    <div>
+                        <label for="destination">Destination</label>
+                        <input type="text" id="destination" placeholder="">
+                    </div>
+                    <div>
+                        <label for="firstTrain">First Train Time (HH:mm - Military Time)</label>
+                        <input type="text" id="firstTrain" placeholder="">
+                    </div>
+                    <div>
+                        <label for="frequency">Frequency (MIN)</label>
+                        <input type="number" id="frequency" placeholder="">
+                    </div>
+                    <button id="submit" type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+
+    </section>
+
+    <footer>
+        <h3>By Gerard Pelly</h3>
+    </footer>
+
+
+    <script type="text/javascript" src="./assets/javascript/trains.js"></script>
+</body>
+
+</html>
