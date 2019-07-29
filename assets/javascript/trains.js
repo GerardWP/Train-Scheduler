@@ -29,11 +29,38 @@ $("#submit").on("click", function (event) {
     };
 
     database.ref("/trains").push(trainObject);
-    trainObject
+
+    $("#trainName").val("");
+    $("#destination").val("");
+    $("#firstTrain").val("");
+    $("#frequency").val("");
+
 });
 
-// database.ref("/trains").on("child_added", function (snap) {
+database.ref("/trains").on("child_added", function (snap) {
 
-// }, function (errorObject) {
-//     console.log("Error handled: " + errorObject.code);
-// });
+    var sv = snap.val();
+    var key = snap.ref.key;
+
+    var nextArrivalTime;
+    var minsTillArrival;
+
+    var row = $('<tr id="' + key + '">');
+    var tdName = $('<td class="table-info">' + sv.trainName + '</td>');
+    var tdDest = $('<td class="table-info">' + sv.destination + '</td>');
+    var tdFreq = $('<td style="width: 18%">' + sv.frequency + '</td>');
+    var tdArrTime = $('<td style="width: 17%">' + 'Arr Time' + '</td>'); // Temp
+    var tdArrMin = $('<td style="width: 17%">' + 'Arr Mins' + '</td>'); // Temp
+    var tdRemove = $('<td style="width: 18%">');
+    var rmvButton = $("<button>");
+    rmvButton.attr("data", key).attr('id', 'rmvBtn').text("Remove");
+    tdRemove.append(rmvButton);
+    row.append(tdName, tdDest, tdFreq, tdArrTime, tdArrMin, tdRemove);
+    $("tbody").append(row);
+
+    console.log(sv);
+    console.log(key);
+
+}, function (errorObject) {
+    console.log("Error handled: " + errorObject.code);
+});
