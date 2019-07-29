@@ -98,6 +98,7 @@ td {
     padding: 8px;
     border-top: 1px solid #092744;
     background: rgb(235, 235, 235);
+    font-weight: 600;
 }
 
 .table-info {
@@ -119,6 +120,7 @@ button#rmvBtn {
     width: 100%;
     padding: 4px;
     font-size: .8em;
+    font-weight: bolder;
     text-transform: uppercase;
     border-radius: 4px;
     transition-duration: 200ms;

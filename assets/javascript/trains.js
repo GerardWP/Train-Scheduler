@@ -53,7 +53,7 @@ database.ref("/trains").on("child_added", function (snap) {
     var tdArrMin = $('<td style="width: 17%">' + 'Arr Mins' + '</td>'); // Temp
     var tdRemove = $('<td style="width: 18%">');
     var rmvButton = $("<button>");
-    rmvButton.attr("data", key).attr('id', 'rmvBtn').text("Remove");
+    rmvButton.attr("data", key).attr('id', 'rmvBtn').text("✕");
     tdRemove.append(rmvButton);
     row.append(tdName, tdDest, tdFreq, tdArrTime, tdArrMin, tdRemove);
     $("tbody").append(row);
@@ -63,4 +63,14 @@ database.ref("/trains").on("child_added", function (snap) {
 
 }, function (errorObject) {
     console.log("Error handled: " + errorObject.code);
+});
+
+database.ref("/trains").on("child_removed", function (snap) {
+    var key = snap.ref.key;
+    $("#" + key).parent().empty();
+});
+
+$(document).on("click", "#rmvBtn", function () {
+    console.log($(this).attr("data"));
+    database.ref("/trains").child($(this).attr("data")).remove();
 });
