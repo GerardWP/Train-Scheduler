@@ -18,6 +18,15 @@ body {
     background-size: cover;
 }
 
+@font-face {
+    font-family: 'digital-7regular';
+    src: url('../font-face/digital-7-webfont.woff2') format('woff2'),
+        url('../font-face/digital-7-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 header {
     background: #1f6ab6;
     padding: 20px;
@@ -53,7 +62,7 @@ header {
 .main {
     width: 95%;
     max-width: 1200px;
-    margin: 35px auto;
+    margin: 30px auto 35px;
 }
 
 h2 {
@@ -125,6 +134,22 @@ button#rmvBtn {
     border-radius: 4px;
     transition-duration: 200ms;
     cursor: pointer;
+}
+
+#clock {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    color: rgb(180, 252, 255);
+    font-family: 'digital-7regular';
+    /* margin: 5px auto; */
+    padding: 5px;
+    width: 90px;
+    text-align: center;
+    border-radius: 4px;
+    font-size: 1.2em;
+    background: rgba(0, 0, 0, 0.448);
+    letter-spacing: .04em;
 }
 
 button#rmvBtn:hover {

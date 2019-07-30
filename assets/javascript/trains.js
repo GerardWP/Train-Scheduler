@@ -12,6 +12,23 @@ firebase.initializeApp(firebaseConfig);
 
 var database = firebase.database();
 
+function updateClock() {
+    var theTime = moment().format('LT');
+    $('#clock').html(theTime);
+};
+
+updateClock();
+setInterval(function () {
+    updateClock();
+}, 60000);
+
+
+
+var currentTime = moment().format("HH:mm");
+
+console.log(currentTime)
+
+
 $("#submit").on("click", function (event) {
 
     event.preventDefault();
