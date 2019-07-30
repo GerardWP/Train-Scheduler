@@ -136,8 +136,8 @@ td span {
     color: rgb(180, 240, 255);
     font-family: 'digital-7regular';
     margin: 10px auto;
-    padding: 5px;
-    width: 100px;
+    padding: 5px 0;
+    width: 150px;
     text-align: center;
     border-radius: 50px;
     font-size: 1.2em;
