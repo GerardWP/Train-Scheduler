@@ -62,7 +62,7 @@ header {
 .main {
     width: 95%;
     max-width: 1200px;
-    margin: 30px auto 35px;
+    margin: 0px auto 35px;
 }
 
 h2 {
@@ -137,18 +137,18 @@ button#rmvBtn {
 }
 
 #clock {
-    position: absolute;
+    /* position: absolute;
     left: 10px;
-    top: 10px;
-    color: rgb(180, 252, 255);
+    top: 10px; */
+    color: rgb(180, 240, 255);
     font-family: 'digital-7regular';
-    /* margin: 5px auto; */
+    margin: 10px auto;
     padding: 5px;
-    width: 90px;
+    width: 100px;
     text-align: center;
-    border-radius: 4px;
+    border-radius: 50px;
     font-size: 1.2em;
-    background: rgba(0, 0, 0, 0.448);
+    background: rgba(0, 0, 0, 0.348);
     letter-spacing: .04em;
 }
 

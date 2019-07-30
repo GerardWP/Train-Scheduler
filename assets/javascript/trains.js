@@ -20,13 +20,13 @@ function updateClock() {
 updateClock();
 setInterval(function () {
     updateClock();
-}, 60000);
+}, 1000);
 
 
 
-var currentTime = moment().format("HH:mm");
+// var currentTime = moment().format("HH:mm");
 
-console.log(currentTime)
+// console.log(currentTime)
 
 
 $("#submit").on("click", function (event) {
@@ -56,18 +56,28 @@ $("#submit").on("click", function (event) {
 
 database.ref("/trains").on("child_added", function (snap) {
 
+
     var sv = snap.val();
     var key = snap.ref.key;
 
+    var currentTime = moment().format("HH:mm");
+
+    var convTime = moment(sv.firstTrainTime, "HH:mm");
+
+    var timeDiff = moment().diff(moment(convTime), "minutes");
+
+    var remainder = timeDiff % sv.frequency;
+
+    var minsTillArrival = sv.frequency - remainder;
+
     var nextArrivalTime;
-    var minsTillArrival;
 
     var row = $('<tr id="' + key + '">');
     var tdName = $('<td class="table-info">' + sv.trainName + '</td>');
     var tdDest = $('<td class="table-info">' + sv.destination + '</td>');
     var tdFreq = $('<td style="width: 18%">' + sv.frequency + '</td>');
     var tdArrTime = $('<td style="width: 17%">' + 'Arr Time' + '</td>'); // Temp
-    var tdArrMin = $('<td style="width: 17%">' + 'Arr Mins' + '</td>'); // Temp
+    var tdArrMin = $('<td style="width: 17%">' + minsTillArrival + '</td>'); // Temp
     var tdRemove = $('<td style="width: 18%">');
     var rmvButton = $("<button>");
     rmvButton.attr("data", key).attr('id', 'rmvBtn').text("✕");
@@ -76,7 +86,7 @@ database.ref("/trains").on("child_added", function (snap) {
     $("tbody").append(row);
 
     console.log(sv);
-    console.log(key);
+    // console.log(key);
 
 }, function (errorObject) {
     console.log("Error handled: " + errorObject.code);
@@ -84,7 +94,7 @@ database.ref("/trains").on("child_added", function (snap) {
 
 database.ref("/trains").on("child_removed", function (snap) {
     var key = snap.ref.key;
-    $("#" + key).parent().empty();
+    $("#" + key).remove();
 });
 
 $(document).on("click", "#rmvBtn", function () {
