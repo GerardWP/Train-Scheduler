@@ -74,7 +74,7 @@ database.ref("/trains").on("child_added", function (snap) {
     var row = $('<tr id="' + key + '">');
     var tdName = $('<td class="table-info">' + sv.trainName + '</td>');
     var tdDest = $('<td class="table-info">' + sv.destination + '</td>');
-    var tdFreq = $('<td style="width: 18%">' + sv.frequency + '</td>');
+    var tdFreq = $('<td style="width: 18%">' + sv.frequency + '<span> min</span>' + '</td>');
     var tdArrTime = $('<td style="width: 17%">' + nextTrainTime + '</td>');
     var tdArrMin = $('<td style="width: 17%">' + minsTillArrival + '</td>');
     var tdRemove = $('<td style="width: 18%">');
