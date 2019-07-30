@@ -60,8 +60,6 @@ database.ref("/trains").on("child_added", function (snap) {
     var sv = snap.val();
     var key = snap.ref.key;
 
-    var currentTime = moment().format("HH:mm");
-
     var convTime = moment(sv.firstTrainTime, "HH:mm");
 
     var timeDiff = moment().diff(moment(convTime), "minutes");
@@ -70,14 +68,15 @@ database.ref("/trains").on("child_added", function (snap) {
 
     var minsTillArrival = sv.frequency - remainder;
 
-    var nextArrivalTime;
+    var nextArrivalTime = moment().add(minsTillArrival, "minutes");
+    var nextTrainTime = moment(nextArrivalTime).format("hh:mm");
 
     var row = $('<tr id="' + key + '">');
     var tdName = $('<td class="table-info">' + sv.trainName + '</td>');
     var tdDest = $('<td class="table-info">' + sv.destination + '</td>');
     var tdFreq = $('<td style="width: 18%">' + sv.frequency + '</td>');
-    var tdArrTime = $('<td style="width: 17%">' + 'Arr Time' + '</td>'); // Temp
-    var tdArrMin = $('<td style="width: 17%">' + minsTillArrival + '</td>'); // Temp
+    var tdArrTime = $('<td style="width: 17%">' + nextTrainTime + '</td>');
+    var tdArrMin = $('<td style="width: 17%">' + minsTillArrival + '</td>');
     var tdRemove = $('<td style="width: 18%">');
     var rmvButton = $("<button>");
     rmvButton.attr("data", key).attr('id', 'rmvBtn').text("✕");
